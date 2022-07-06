@@ -4,14 +4,16 @@ import "./ticket.css";
 class Form extends Component {
   state = {
     name: "",
-    seat: 0
+    seat: 0,
   };
-
+  handleSumbmit = (e) => {
+    e.preventDefault();
+  };
   render() {
     console.log(this.props);
 
     return (
-      <div id="form" className="w-75">
+      <div id="form" onSubmit={this.handleSumbmit} className="w-75">
         <h6 style={{ color: "#F87424" }} className="text-left">
           Fill The Required Details Below And Select Your Seats
         </h6>
@@ -66,8 +68,9 @@ class Form extends Component {
           </div>
           <div className="col-md-12 ">
             <button
-              style={{ background: "var(--primary)" }}
-              className="btn  text-light mt-5 d-flex justify-content-start"
+              type="submit"
+              style={{ background: "" }}
+              className="btn btn-light text-dark text-light mt-5 d-flex justify-content-start"
             >
               Start Selecting
             </button>

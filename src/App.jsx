@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function App() {
   return (
     <div className="App">
-      <div className="text-center mt-3 text-light">
+      <div className="text-center mt-4 text-light">
         <h1>MOVIE SEAT SELECTION</h1>
       </div>
 
@@ -45,6 +45,8 @@ export default function App() {
             <small>Empty Seat</small>
           </div>
         </div>
+        <div className="screen mt-3 m-lg-3 text-light"></div>
+        <h4 className="text-center text-light w-75">SCREEN</h4>
         <Seat />
         <Ticket />
       </div>

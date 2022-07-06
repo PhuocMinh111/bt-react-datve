@@ -6,10 +6,19 @@ import SingleSeat from "./SingleSeat";
 class Seat extends Component {
   render() {
     console.log(this.props);
+    const { danhSachGhe } = data[1];
 
     return (
       <div className="w-75 mx-auto mt-3">
         <table>
+          <thead>
+            <th></th>
+            {danhSachGhe.map((ele, index) => {
+              return (
+                <th className="mr-2 text-light text-center">{index + 1}</th>
+              );
+            })}
+          </thead>
           <tbody>
             {data.map((item, index) => {
               if (index == 0) return false;
