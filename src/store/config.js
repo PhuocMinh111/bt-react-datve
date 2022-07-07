@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from "redux";
 const _state = {
-  ticket: 1,
+  ticketNum: 1,
   picked: false,
-  seatPick: []
+  seatPick: [],
 };
 const ticketReducer = function (state = _state, action) {
   return state;

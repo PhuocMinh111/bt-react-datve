@@ -12,12 +12,14 @@ class Seat extends Component {
       <div className="w-75 mx-auto mt-3">
         <table>
           <thead>
-            <th></th>
-            {danhSachGhe.map((ele, index) => {
-              return (
-                <th className="mr-2 text-light text-center">{index + 1}</th>
-              );
-            })}
+            <tr>
+              <th></th>
+              {danhSachGhe.map((ele, index) => {
+                return (
+                  <th className="mr-2 text-light text-center">{index + 1}</th>
+                );
+              })}
+            </tr>
           </thead>
           <tbody>
             {data.map((item, index) => {
@@ -32,9 +34,10 @@ class Seat extends Component {
                     {hang}
                   </td>
                   {danhSachGhe.map((ghe, index) => {
+                    const { soGhe } = ghe;
                     return (
                       <td key={index}>
-                        <SingleSeat ghe={ghe} />
+                        <SingleSeat ghe={ghe} soGhe={soGhe} />
                       </td>
                     );
                   })}
