@@ -8,7 +8,9 @@ class Form extends Component {
   };
   handleSumbmit = (e) => {
     e.preventDefault();
+    this.props.handleForm(this.state.name, this.state.seat);
   };
+
   render() {
     console.log(this.props);
 
@@ -80,7 +82,16 @@ class Form extends Component {
     );
   }
 }
-
+const disPatchToProps = function (dispatch) {
+  return {
+    handleForm: (seat, userName) => {
+      dispatch({
+        type: "FORM_HANDLE",
+        payload: { seatNum: seat, userName: userName },
+      });
+    },
+  };
+};
 export default connect((state) => {
   return { ...state.ticket };
-})(Form);
+}, disPatchToProps)(Form);

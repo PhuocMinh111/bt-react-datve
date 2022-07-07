@@ -16,7 +16,9 @@ class Seat extends Component {
               <th></th>
               {danhSachGhe.map((ele, index) => {
                 return (
-                  <th className="mr-2 text-light text-center">{index + 1}</th>
+                  <th key={index} className="mr-2 text-light text-center">
+                    {index + 1}
+                  </th>
                 );
               })}
             </tr>
