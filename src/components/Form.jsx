@@ -9,11 +9,10 @@ class Form extends Component {
   handleSumbmit = (e) => {
     e.preventDefault();
     this.props.handleForm(this.state.name, this.state.seat);
+    console.log(this.props.seatNum);
   };
 
   render() {
-    console.log(this.props);
-
     return (
       <div id="form" onSubmit={this.handleSumbmit} className="w-75">
         <h6 style={{ color: "#F87424" }} className="text-left">
@@ -71,7 +70,11 @@ class Form extends Component {
           <div className="col-md-12 ">
             <button
               type="submit"
-              style={{ background: "" }}
+              style={{
+                background: `${
+                  this.state.name != "" && this.state.seat != 0 && "#F87424"
+                }`,
+              }}
               className="btn btn-light text-dark text-light mt-5 d-flex justify-content-start"
             >
               Start Selecting
@@ -84,14 +87,14 @@ class Form extends Component {
 }
 const disPatchToProps = function (dispatch) {
   return {
-    handleForm: (seat, userName) => {
+    handleForm: (userName, seat) => {
       dispatch({
         type: "FORM_HANDLE",
-        payload: { seatNum: seat, userName: userName },
+        payload: { seatNum: seat, userName: userName, canPick: true },
       });
     },
   };
 };
 export default connect((state) => {
-  return { ...state.ticket };
+  return { ...state };
 }, disPatchToProps)(Form);

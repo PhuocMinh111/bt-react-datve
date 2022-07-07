@@ -48,6 +48,9 @@ class Seat extends Component {
             })}
           </tbody>
         </table>
+        <button className="btn d-inline-block btn-light mx-auto mt-5 p3">
+          COMFIRM SELECTION
+        </button>
       </div>
     );
   }

@@ -4,32 +4,36 @@ import "./ticket.css";
 class Ticket extends Component {
   state = {
     selected: false,
+    selectedSeat: [],
   };
 
   selectSeat = (id) => {
-    // if (this.props.seatPicked > this.props.seatNum) return;
-    if (
-      this.props.seatPicked.indexOf(id) != -1 &&
-      this.props.seatPicked.length > 1
-    )
-      return;
-    this.props.addSeat(id);
-    this.setState({ selected: !this.state.selected });
-    console.log(this.props.seatPicked);
-    // this.setState({ ...this.state, seats: [...this.state.seats, id] });
+    if (this.props.seatPicked.length >= this.props.seatNum) return;
+    if (this.props.seatPicked.length > this.props.seatNum) return;
+    if (this.props.seatPicked.indexOf(id) !== -1) {
+      this.props.remove(id);
+      this.setState({ selected: false });
+    } else {
+      this.setState({ selected: true });
+      this.props.addSeat(id);
+      console.log(this.props.seatPicked);
+      // this.setState({ ...this.state, seats: [...this.state.seats, id] });
+    }
   };
 
   render() {
     return (
       <button
         id={this.props.soGhe}
-        disabled={this.props.canSelect}
+        disabled={!this.props.canPick}
         style={{ display: "inline-block" }}
         className={
           this.state.selected ? "ghe mr-2 bg-success" : "ghe mr-2 bg-light"
         }
         onClick={() => this.selectSeat(this.props.soGhe)}
-      ></button>
+      >
+        {this.props.soGhe}
+      </button>
     );
   }
 }
@@ -38,6 +42,9 @@ const disPatchToProps = function (dispatch) {
   return {
     addSeat: (seat) => {
       dispatch({ type: "ADD_SEAT", payload: seat });
+    },
+    remove: (seat) => {
+      dispatch({ type: "REMOVE_SEAT", payload: seat });
     },
   };
 };
