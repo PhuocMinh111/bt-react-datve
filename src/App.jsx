@@ -3,6 +3,7 @@ import Ticket from "./components/SingleSeat";
 import Form from "./components/Form";
 import Seat from "./components/Seat";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Sumary from "./components/Sumary";
 export default function App() {
   return (
     <div className="App">
@@ -10,7 +11,7 @@ export default function App() {
         <h1>MOVIE SEAT SELECTION</h1>
       </div>
 
-      <div id="main" className="container mt-3">
+      <div id="main" className="w-75 container mt-3">
         <Form />
         <div className="row mt-3 text-light">
           <div className="col-3 d-flex align-items-center">
@@ -45,10 +46,11 @@ export default function App() {
             <small>Empty Seat</small>
           </div>
         </div>
-        <div className="screen mt-3 m-lg-3 text-light"></div>
+        <div className="screen w-75 mx-auto mt-3 m-lg-3 text-light"></div>
         <h4 className="text-center text-light w-75">SCREEN</h4>
         <Seat />
         <Ticket />
+        <Sumary />
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ class Seat extends Component {
     const { danhSachGhe } = data[1];
 
     return (
-      <div className="w-75 mx-auto mt-3">
+      <div className="w-75  mt-3">
         <table>
           <thead>
             <tr>
@@ -48,7 +48,11 @@ class Seat extends Component {
             })}
           </tbody>
         </table>
-        <button className="btn d-inline-block btn-light mx-auto mt-5 p3">
+        <button
+          onClick={this.props.submit}
+          style={{ background: "#F87424" }}
+          className="btn d-inline-block btn-light mx-auto mt-5 p3"
+        >
           COMFIRM SELECTION
         </button>
       </div>
@@ -56,6 +60,13 @@ class Seat extends Component {
   }
 }
 
-export default connect((state) => {
-  return { ticket: state.ticket };
-}, null)(Seat);
+export default connect(
+  (state) => {
+    return { ticket: state.ticket };
+  },
+  (dispatch) => ({
+    submit: () => {
+      dispatch({ type: "SUBMIT" });
+    },
+  })
+)(Seat);

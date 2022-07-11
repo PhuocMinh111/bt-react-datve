@@ -13,10 +13,23 @@ code {
 }
 
 body {
-  background: url("asset/banner.jpg") center no-repeat;
-  object-fit: contain;
+  background: url("./asset/banner.jpg") no-repeat center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-attachment: fixed;
+  font-family: "Source Sans Pro", sans-serif;
 }
 #main {
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.3);
+}
+.sum {
+  height: 100px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 16px;
+  margin-right: 20px;
 }

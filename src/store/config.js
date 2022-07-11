@@ -7,6 +7,7 @@ const _state = {
   picked: false,
   seatPicked: [],
   canPick: false,
+  isSubmit: false,
 };
 const ticketReducer = function (state = _state, action) {
   switch (action.type) {
@@ -21,6 +22,8 @@ const ticketReducer = function (state = _state, action) {
         ...state,
         seatPicked: [...temp],
       };
+    case "SUBMIT":
+      return { ...state, isSubmit: true };
     default:
       break;
   }
